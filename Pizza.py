@@ -64,7 +64,13 @@ class Banana(Decorator):  # Decorador Concreto 9
     def __init__(self, pizza):
         Decorator.__init__(self, pizza)
 
-PizzaDeCalabresa = Mussarela(Calabresa(Massa()))
+class MolhoDeTomate(Decorator): # Decorador Concreto 10
+    cost = 5
+    def __init__(self, pizza):
+        Decorator.__init__(self, pizza)
+
+
+PizzaDeCalabresa = Mussarela(Calabresa(MolhoDeTomate(Massa())))
 print(PizzaDeCalabresa.getDescription() + ": $" + str(PizzaDeCalabresa.getTotalCost()))
 
 PizzaDoce = Banana(Chocolate(Massa()))
